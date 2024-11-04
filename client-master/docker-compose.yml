@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:15
+    container_name: clear-ledger-db-frontend
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: clear_ledger_frontend
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+volumes:
+  db_data:
+    name: clear-ledger-data-frontend
+# networks:
+#   clear_ledger_network:
+#     name: clear_ledger_network
